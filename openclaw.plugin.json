@@ -1,0 +1,20 @@
+{
+  "id": "shared-agent-state",
+  "name": "Shared Agent State",
+  "description": "Atomic provenance-aware memory and a shared TaskFlow ledger for trusted Telegram entry points.",
+  "version": "0.2.0",
+  "activation": { "onStartup": true },
+  "contracts": { "tools": ["shared_memory_remember", "shared_task_ledger"] },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["ownerTelegramId"],
+    "properties": {
+      "ownerTelegramId": { "type": "string", "pattern": "^[0-9]{5,20}$" },
+      "agentId": { "type": "string", "default": "main" },
+      "allowedAccountIds": { "type": "array", "items": { "type": "string" }, "default": ["default"] },
+      "accountNames": { "type": "object", "additionalProperties": { "type": "string" } },
+      "timeZone": { "type": "string", "default": "UTC" }
+    }
+  }
+}

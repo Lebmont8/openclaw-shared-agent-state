@@ -1,0 +1,17 @@
+{
+  "name": "openclaw-shared-agent-state",
+  "version": "0.2.0",
+  "description": "Shared provenance-aware memory and TaskFlow project locks for OpenClaw entry points.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Lebmont8",
+  "repository": { "type": "git", "url": "git+https://github.com/Lebmont8/openclaw-shared-agent-state.git" },
+  "files": ["index.js", "core.js", "openclaw.plugin.json", "README.md", "SECURITY.md", "LICENSE"],
+  "scripts": {
+    "check": "node --check index.js && node --check core.js",
+    "test": "node --test index.test.js",
+    "verify": "npm run check && npm test"
+  },
+  "peerDependencies": { "openclaw": ">=2026.7.1" },
+  "openclaw": { "extensions": ["./index.js"] }
+}
