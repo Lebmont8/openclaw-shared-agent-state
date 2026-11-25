@@ -1,15 +1,10 @@
 # OpenClaw Shared Agent State
 
-An OpenClaw plugin for several trusted Telegram entry points that share one
-agent workspace. It provides atomic, provenance-aware memory writes and a
-TaskFlow ledger with exclusive project locks.
+When several Telegram bots use one OpenClaw agent, each chat still has its own
+session. This plugin lets those sessions share memory with source records and use
+project locks so two sessions do not edit the same project at once.
 
-## Why
-
-Multiple bot accounts can point to the same OpenClaw agent but still have
-separate live sessions. Without coordination, two sessions may overwrite the
-same project or record contradictory memory. This plugin gives them two narrow
-tools:
+## Tools
 
 - `shared_memory_remember` — confirmed memory with source, confidence, scope,
   correction links, atomic writes, and a private audit trail
